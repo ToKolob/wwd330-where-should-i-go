@@ -13,6 +13,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -81,6 +83,26 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+
+/* refer to the parent of class countryInList to set a grid 3*/
+
+.countryInList {
+  width: 100%;
+}
+.countryInList img{
+  width: 100%;
+}
+div.countries{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+
+
+
+
 
 @media (prefers-color-scheme: light) {
   :root {
