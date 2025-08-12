@@ -1,4 +1,5 @@
-import { renderAllCountries, renderRandom } from "./allCountries";
+import { renderAllCountries } from "./allCountries.js";
+import { renderRandom } from "./renderRandom.js";
 
 export function saveInLocalStorage(key, value) {
   try {
