@@ -15,7 +15,7 @@ export function renderAllCountries() {
     <div class="countryInList">
       <a href="https://en.wikipedia.org/wiki/${country.name.common}" target="_blank" rel="noopener noreferrer">
         <h2>${country.name.common}</h2>
-        <img src="${country.flags.svg}" alt="Flag of ${country.name.common}" />
+        <img class="flag" src="${country.flags.svg}" alt="Flag of ${country.name.common}" />
         <p>Capital: ${country.capital ? country.capital[0] : 'N/A'}</p>
         <p>Population: ${country.population.toLocaleString()}</p>
       </a>

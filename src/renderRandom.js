@@ -1,4 +1,5 @@
 import { fetchImages } from './images.js'
+import { renderOne } from './oneCountry.js'
 
 export function renderRandom() {
   const main = document.querySelector('#main');
@@ -19,15 +20,17 @@ export function renderRandom() {
     console.log('Image fetched for:', randomCountry.name.common);
 
     main.innerHTML = `
-      <div class="countryInList">
-        <a href="https://en.wikipedia.org/wiki/${randomCountry.name.common}" target="_blank" rel="noopener noreferrer">
+      <div class="randomCountry">
+        <div class="countryDetails">
           <h2>${randomCountry.name.common}</h2>
-          <img src="${randomCountry.flags.svg}" alt="Flag of ${randomCountry.name.common}" />
-          <img src="${landscapeImage}" alt="Landscape of ${randomCountry.name.common}" />
           <p>Capital: ${randomCountry.capital ? randomCountry.capital[0] : 'N/A'}</p>
           <p>Population: ${randomCountry.population.toLocaleString()}</p>
-        </a>
+          <a href="https://en.wikipedia.org/wiki/${randomCountry.name.common}" target="_blank" rel="noopener noreferrer">Learn about</a>
+        </div>
+        <img class="flag" src="${randomCountry.flags.svg}" alt="Flag of ${randomCountry.name.common}" />
       </div>
+      <img class="landscape" src="${landscapeImage}" alt="Landscape of ${randomCountry.name.common}" />        
+
     `;
   }).catch(error => {
     console.error('Error fetching image:', error);

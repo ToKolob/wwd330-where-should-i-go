@@ -1,5 +1,5 @@
-import { renderAllCountries } from "./allCountries.js";
-import { renderRandom } from "./renderRandom.js";
+
+import { renderHomePage } from "./homePage.js";
 
 export function saveInLocalStorage(key, value) {
   try {
@@ -13,24 +13,21 @@ export function renderHeader() {
   const header = document.querySelector('#header');
   if (header) {
     header.innerHTML = `
-    <h1>Where should I go?</h1>
-    <ul>
-      <li><a href="#random">Random</a></li>
-      <li><a href="#allCountries">All countries</a></li>
-    </ul>
+    <h1 id='homepage'>Where should I go?</h1>
+
+    <form id="searchForm">
+      <input type="text" id="searchInput" placeholder="Search for a country..." />
+      <button type="submit">Search</button>
+    </form>
     `;
   } else {
     console.error('Header element not found');
   }
 
-  // Add event listeners for navigation
-  document.querySelector('a[href="#allCountries"]').addEventListener('click', (event) => {
+
+  document.querySelector('#homepage').addEventListener('click', (event) => {
     event.preventDefault();
-    renderAllCountries();
-  });
-  document.querySelector('a[href="#random"]').addEventListener('click', (event) => {
-    event.preventDefault();
-    renderRandom();
+    renderHomePage();
   });
 }
 
@@ -40,7 +37,7 @@ export function renderFooter() {
   const footer = document.querySelector('#footer');
   if (footer) {
     footer.innerHTML = `
-    <p>&copy; 2023 Where Should I Go?</p>
+    <p>&copy; 2025 Where Should I Go?</p>
     <p>Powered by <a href="https://restcountries.com">Rest Countries API</a></p>
     `;
   } else {

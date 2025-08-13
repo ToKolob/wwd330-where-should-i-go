@@ -5,7 +5,23 @@ const unsplash = createApi({
   accessKey: import.meta.env.VITE_UNSPLASH_ACCESS_KEY, // Uses the access key from .env
 });
 
+//mock result
+const mockResult = {
+  response: {
+    results: [
+      {
+        urls: {
+          full: 'https://example.com/image.jpg',
+        },
+      },
+    ],
+  },
+};
+
 export async function fetchImages(param) {
+  if (false) {
+    return mockResult.response.results[0].urls.full; // Returns the mock image URL
+  }
   try {
     const result = await unsplash.search.getPhotos({
       query: param,
