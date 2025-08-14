@@ -1,5 +1,7 @@
 import { renderAllCountries } from "./allCountries.js";
 import { renderRandom } from "./renderRandom.js";
+import { fetchImages } from "./images.js";
+
 export function renderHomePage() {
   const main = document.querySelector('#main');
   if (!main) {
@@ -7,17 +9,25 @@ export function renderHomePage() {
     return;
   }
 
+    
   main.innerHTML = `
     <h2>Welcome to the Travel Guide</h2>
     <div id=randomCountry>
-      <h3>Discover a random country</h3>
-      <p>Click the button below to explore a random country and its beautiful landscapes.</p>
+      <div>
+        <h3>Discover a random country</h3>
+        <p>Click here to explore a random country and its beautiful landscapes.</p>
+        <p>Explore countries around the world, discover their cultures, and find your next travel destination!</p>
+      </div>
+      <img class=optionImage src="/travel.jpg" alt="Random Country" />
 
-    <p>Explore countries around the world, discover their cultures, and find your next travel destination!</p>
+
     </div>
     <div id="countryList">
-      <h3>Country List</h3>
-      <p>Seach for a country or explore all countries.</p>
+      <div>
+        <h3>Country List</h3>
+        <p>Seach for a country or explore all countries.</p>
+      </div>
+      <img class=optionImage src="/flags.jpg" alt="Country List" />
     </div>
   `;
 
