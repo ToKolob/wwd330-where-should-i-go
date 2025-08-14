@@ -1,7 +1,7 @@
 import './style.css'
 import { fetchCountries } from './countries.js'
-import { renderAllCountries } from './allCountries.js'
 import { renderFooter, renderHeader } from './utils.js'
+import { renderHomePage } from './homePage.js'
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -13,6 +13,7 @@ document.querySelector('#app').innerHTML = `
 
 renderHeader();
 renderFooter();
+renderHomePage();
 fetchCountries().then(() => {
   console.log('Countries fetched and saved in localStorage');
   // renderAllCountries();

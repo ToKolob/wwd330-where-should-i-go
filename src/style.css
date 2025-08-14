@@ -1,118 +1,174 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+*{
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto ', sans-serif;
+}
+a{
+  text-decoration: none;
+  color: #F39C12;
+}
+a:hover{
+  color: #F39C12;
+  transition: color 0.3s ease;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+div#header {
+  background: linear-gradient(to right, #004E92, #000d7eff);
+  color: #fff;
+  padding: 10px 20px;
   text-align: center;
+  display: block;  
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+div#header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+div#header h1#homepage {
   cursor: pointer;
-  transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+h1#homepage:hover {
+  color: #F39C12;
+  transition: color 0.3s ease;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+div#header ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
 }
-
-
-/* refer to the parent of class countryInList to set a grid 3*/
-
-.countryInList {
+div#header ul li a{
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease;
+}
+div#main{
+  padding: 20px 0px 40px 0px;
+}
+div#footer {
+  background: linear-gradient(to right, #004E92, #000d7eff);
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
   width: 100%;
+  position: fixed;
+  bottom: 0;
 }
-.countryInList img{
-  width: 100%;
+div#randomCountry, div#countryList {
+  background: linear-gradient(to right, #004E92, #000d7eff);
+  color: #fff;
+  padding: 20px;  
+  border-radius: 10px;
+  margin: 20px;
+}
+div#main h2 {
+  margin: 20px;
+}
+
+div#randomCountry:hover, div#countryList:hover {
+  background: linear-gradient(to right, #000d7eff, #004E92);
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+form#searchForm {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+form#searchForm input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+}
+form#searchForm button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #F39C12;
+  color: white;
+  cursor: pointer;
 }
 div.countries{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+div.countryInList {
+  background: #fff;
+  color: #000;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+div.countryInList:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+div.countryDetails {
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+img.flag {
+  width: 100%;
+  height: auto;
+  margin-right: 10px;
+}
+img.landscape {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+div.randomCountry{
+  margin: 0 20px  20px 20px;
+}
+img.optionImage {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
-
-
-
-
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@media (min-width: 768px) {
+  div.singleCountry{
+    background: linear-gradient(to right, #004E92, #000d7eff);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
-  a:hover {
-    color: #747bff;
+  div#main {
+    margin: 20px
   }
-  button {
-    background-color: #f9f9f9;
+  div#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
   }
+  div#randomCountry, div#countryList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  div#randomCountry div, div#countryList div {
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  
 }

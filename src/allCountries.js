@@ -1,3 +1,5 @@
+import { renderOne } from "./renderOneCountry.js"
+
 export function renderAllCountries() {
   const main = document.querySelector('#main');
   if (!main) {
@@ -13,15 +15,19 @@ export function renderAllCountries() {
 
   const countryList = countries.map(country => `
     <div class="countryInList">
-      <a href="https://en.wikipedia.org/wiki/${country.name.common}" target="_blank" rel="noopener noreferrer">
-        <h2>${country.name.common}</h2>
-        <img src="${country.flags.svg}" alt="Flag of ${country.name.common}" />
-        <p>Capital: ${country.capital ? country.capital[0] : 'N/A'}</p>
-        <p>Population: ${country.population.toLocaleString()}</p>
-      </a>
+      <h2>${country.name.common}</h2>
+      <img class="flag" src="${country.flags.svg}" alt="Flag of ${country.name.common}" />
+      <p>Capital: ${country.capital ? country.capital[0] : 'N/A'}</p>
+      <p>Population: ${country.population.toLocaleString()}</p>
     </div>
   `).join('');
 
   main.innerHTML = `<div class="countries">${countryList}</div>`;
+
+  document.querySelectorAll('.countryInList').forEach((countryElement, index) => {
+    countryElement.addEventListener('click', () => {
+      renderOne(countries[index]);
+    });
+  });
 }
 
